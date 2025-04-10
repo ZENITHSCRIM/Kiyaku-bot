@@ -34,6 +34,10 @@
         .offline {
             color: #e74c3c;
         }
+        .updating {
+            color: #e74c3c; /* 赤文字 */
+            font-weight: bold; /* 太字 */
+        }
         input, button {
             padding: 10px;
             margin: 10px;
@@ -48,22 +52,19 @@
     <div class="status-box">
         <h2>Zenith scrim bot status</h2>
         
-        
         <!-- ステータス表示部分 -->
         <p id="status-display">ステータス: version2.0.0で稼働中</p>
+        <button onclick="updateStatus()">ステータス更新</button>
     </div>
 
     <script>
         // ステータスを更新する関数
         function updateStatus() {
-            const statusInput = document.getElementById('status-input').value;  // 入力されたステータスを取得
-            const statusDisplay = document.getElementById('status-display');    // ステータス表示部分を取得
+            const statusDisplay = document.getElementById('status-display'); // ステータス表示部分を取得
 
-            if (statusInput.trim() !== "") {
-                statusDisplay.textContent = "ステータス: " + statusInput;  // ステータス表示を更新
-            } else {
-                statusDisplay.textContent = "ステータス: 未設定";  // 入力が空の場合、未設定と表示
-            }
+            // ステータスを赤文字で「アップデートを実行中」に設定
+            statusDisplay.textContent = "ステータス: アップデートを実行中";
+            statusDisplay.className = "updating"; // クラスを設定して赤文字に変更
         }
     </script>
 
